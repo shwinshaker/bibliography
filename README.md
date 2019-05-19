@@ -8,3 +8,7 @@ Abstracts and keywords for a list of papers and extensive readings
 
 ## Computer Vision
 
+* [Center loss](https://ydwen.github.io/papers/WenECCV16.pdf)
+    - The joint supervision of softmax loss and center loss enables the inter-class dispension and intra-class compactness simultaneously.
+    - During training, centers are computed in a mini-batch flavour to ensure efficiency. Updates of centers are controlled by a learning rate to avoid perturbations of mislabeled examples.
+
