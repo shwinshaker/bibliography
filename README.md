@@ -6,9 +6,9 @@ Abstracts and keywords for a list of papers and extensive readings
     - Discriminative classifiers (Eg. Logistic; SVM) learn the decision boundary \[![equation](http://latex.codecogs.com/gif.latex?p(y|x))\]; Generative classifiers (Eg. Naive bayes; HMM) model the distribution ($P(x,y)$ -> $P(y|x)$). ([Nice story](https://medium.com/@mlengineer/generative-and-discriminative-models-af5637a66a3))
     - Generative learners learn faster as the number of training examples grows, but converge to higher asymtotic error, compared to Discriminative learner. This suggests that generative learners may outperform discriminative learners when data are not sufficient. ([Supported by theoretical and empirical analyses by Andrew Ng](http://ai.stanford.edu/~ang/papers/nips01-discriminativegenerative.pdf))
 
-* Batch Normalization
+* Batch Normalization ([Original paper](https://arxiv.org/pdf/1502.03167.pdf)) ([Deep learning book Section 8.7.1](http://www.deeplearningbook.org/contents/optimization.html))
     - Batch normalization is a way to reduce second-order relationships between different layers. It's like a checkpoint to isolate subsequent layers to make the training of very deep networks easier. Batch normalization prefers large datasets. It brings a minor effect of regularization. Watch [Ian Goodfellow's great talk](https://www.youtube.com/watch?v=Xogn6veSyxA&feature=youtu.be) about batch normalization.
-    - BN before or after non-linear activations? (AKA. BN the inputs or the outputs of NN layers?) It doesn't really matter and depends. See relavant [discussion and experiments](https://www.reddit.com/r/MachineLearning/comments/67gonq/d_batch_normalization_before_or_after_relu/).
+    - BN before or after non-linear activations? (AKA. BN the outputs $XW+b$ or the inputs $X$ of linear transformation layers?) It is not quite clear and depends. In the original paper the former was recommended, which is confirmed in Deep learning book. See relavant [discussion and experiments](https://www.reddit.com/r/MachineLearning/comments/67gonq/d_batch_normalization_before_or_after_relu/).
 
 * Covariance Shift
     - Covariance shift or dataset shift refer to the issue that the distributions of training and testing data differ.
@@ -16,6 +16,14 @@ Abstracts and keywords for a list of papers and extensive readings
 
 * Matthews correlation coefficient
     - A measure of the quality of binary classification
+
+* Explanation
+    - LIME: Say a text classification task with only unigrams as features. By the change of prediction probability (confidence) after removing a word from the document, we can see the the weight (importance) of this word in prediction. This is essentially same as what we do in decision tree (or statistical learning in general), that each word is a feature in a node, and the decision rule is whether this word (feature) exists or not.
+
+## Machine Learning algorithms
+* Boosting
+    - Adaboost (see [derivations](http://www.inf.fu-berlin.de/inst/ag-ki/adaboost4.pdf))
+    - Anyboost: a general framework for boosting algorithms (see [**Boosting algorithms as gradient descent**](https://papers.nips.cc/paper/1766-boosting-algorithms-as-gradient-descent.pdf))
 
 ## Computer Vision
 
@@ -28,3 +36,11 @@ Abstracts and keywords for a list of papers and extensive readings
     - By normalizing weights and imposing stringent angular criterion, learned features can be constrained to be discriminative on a hypersphere manifold, which inherently matches the prior that face images lie on a manifold.
     - Instead of weights, the learned now has to depend on the features. Thus the learning of discriminative features is made explicit.
     - A scalar parameter $m$ can be used to adjust the intra-class compactness of the learned features, and therefore the difficulty of the learning task. Lower bound of $m$ can be quantitatively derived to ensure the maximal intra-class distance is smaller than the minimal inter-class distance.
+
+* [Large Margin Cosine Loss](https://arxiv.org/abs/1801.09414) (CosFace) **#Face-Recognition #Metric-Learning**
+    - The decision boundary of A-Softmax depends on $\theta$, which leads to different margins for different classes. And it also poses a difficulty to optimization due to the non-linearity of Cosine Function.
+    - It should be favored by directly pushing the margins based on cosine similarity.
+
+* [Additive Angular Margin Loss](https://arxiv.org/abs/1801.07698) (ArcFace) **#Face-Recognition #Metric-Learning**
+    - Directly push the margin in terms of goedesic distance, which is consistent with the nature of angular distribution of classes in the normalized hypersphere.
+    - 
