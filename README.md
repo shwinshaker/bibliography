@@ -18,12 +18,17 @@ Abstracts and keywords for a list of papers and extensive readings
     - A measure of the quality of binary classification
 
 * Explanation
-    - LIME: Say a text classification task with only unigrams as features. By the change of prediction probability (confidence) after removing a word from the document, we can see the the weight (importance) of this word in prediction. This is essentially same as what we do in decision tree (or statistical learning in general), that each word is a feature in a node, and the decision rule is whether this word (feature) exists or not.
+    - LIME: Say a text classification task with only unigrams as features. Given the change of prediction probability (confidence) after removing a word from the document, we can see the the weight (importance) of this word contributed to the prediction. This is essentially same as what we do in decision tree (or statistical learning in general), that each word is a feature in a node, and the decision rule is whether this word (feature) exists or not.
 
 ## Machine Learning algorithms
 * Boosting
+    - A boosting procedure can only stop if the weak learner's prediction is pure (It's perfect)
+    - Boosting is robust to overfitting. But [why](https://www.quora.com/Why-is-the-boosting-algorithm-robust-to-overfitting)? My understanding: Because each *weak* learner has to make *global* decision on the entire data, can't be localized around outliers. (Weak yet global) Not like decision trees, which each node is more localized as it goes deeper. Yoav (CS255) said it's related to the margin, but I didn't fully understand.
+    - Boosting works well when the classifier depends on just a small subset of the features (Sparse detector). In contrast, support vector machine (SVM) is a dense detector.
+    - Boosting (or SVM) indicates the confidence of prediction by the margin between classes, which implies the stability of the classifier's predictions against small changes in the training sample. In contrast, the logistic regression (or multi-layer perceptrons) produces a probability of the prediction indicting it's confidence, but that is not the confidence that how much we should trust the model.
     - Adaboost (see [derivations](http://www.inf.fu-berlin.de/inst/ag-ki/adaboost4.pdf))
-    - Anyboost: a general framework for boosting algorithms (see [**Boosting algorithms as gradient descent**](https://papers.nips.cc/paper/1766-boosting-algorithms-as-gradient-descent.pdf))
+    - Anyboost: a general framework for boosting algorithms, viewing the weights of examples as the gradients of loss function (see [**Boosting algorithms as gradient descent**](https://papers.nips.cc/paper/1766-boosting-algorithms-as-gradient-descent.pdf)) (XGBoost: An efficient and flexible gradient boosting library)
+    - Reference: [A comprehensible introduction to boosted trees](https://xgboost.readthedocs.io/en/latest/tutorials/model.html)
 
 ## Computer Vision
 
