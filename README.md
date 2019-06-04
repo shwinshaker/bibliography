@@ -32,6 +32,16 @@ Abstracts and keywords for a list of papers and extensive readings
 
 ## Computer Vision
 
+* [DeepFace](https://ieeexplore.ieee.org/document/6909616) **#Face-Recognition**
+    - Perform 3D alignment in order to align faces undergoing out-of-plane rotations (pitch and yaw). 67 fiducial points are first detected in 2D images, which are then mapped to 3D points following an affine transformation.
+    - Locally connected layers are stacked on normal convolutional layers to extract spatially independent features. The reason states that after proper alignment, different regions on a feature map should have different statistics, thus spatial invariance of convolutions no longer holds.
+    - Different verificaiton metrics are experimented to measure the similarity between feature representations, including naive inner product (unsupervised), weighted $\chi^2$ similarity and siamese network (supervised).
+
+* [DeepID2](https://arxiv.org/abs/1406.4773) **#Face-Recognition**
+    - Signals of face identification and verfication are joined to supervise the model, which reduces the intra-class variations and enlarge the inter-class variations simultaneously
+    - A gradient descent algorithm for the joint learning is well designed.
+    - Detailed analyses on how the trade-off between identification and verificaiton losses affect the performance
+
 * [Center loss](https://ydwen.github.io/papers/WenECCV16.pdf)
     - The joint supervision of softmax loss and center loss enables the inter-class dispension and intra-class compactness simultaneously.
     - During training, centers are computed in a mini-batch flavour to ensure efficiency. Updates of centers are controlled by a learning rate to avoid perturbations of mislabeled examples.
