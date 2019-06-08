@@ -1,4 +1,4 @@
-## Computer Vision
+## Face recognition
 
 * [DeepFace](https://ieeexplore.ieee.org/document/6909616) **#Face-Recognition**
     - Perform 3D alignment in order to align faces undergoing out-of-plane rotations (pitch and yaw). 67 fiducial points are first detected in 2D images, which are then mapped to 3D points following an affine transformation.

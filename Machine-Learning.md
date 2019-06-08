@@ -1,4 +1,4 @@
-## Machine Learning
+## Glossary and Concepts
 * Discriminative vs. Generative classifiers
     - Discriminative classifiers (Eg. Logistic; SVM) learn the decision boundary \[![equation](http://latex.codecogs.com/gif.latex?p(y|x))\]; Generative classifiers (Eg. Naive bayes; HMM) model the distribution ($P(x,y)$ -> $P(y|x)$). ([Nice story](https://medium.com/@mlengineer/generative-and-discriminative-models-af5637a66a3))
     - Generative learners learn faster as the number of training examples grows, but converge to higher asymtotic error, compared to Discriminative learner. This suggests that generative learners may outperform discriminative learners when data are not sufficient. ([Supported by theoretical and empirical analyses by Andrew Ng](http://ai.stanford.edu/~ang/papers/nips01-discriminativegenerative.pdf))
@@ -17,7 +17,7 @@
 * Explanation
     - LIME: Say a text classification task with only unigrams as features. Given the change of prediction probability (confidence) after removing a word from the document, we can see the the weight (importance) of this word contributed to the prediction. This is essentially same as what we do in decision tree (or statistical learning in general), that each word is a feature in a node, and the decision rule is whether this word (feature) exists or not.
 
-## Machine Learning algorithms
+## Algorithms
 * Boosting
     - A boosting procedure can only stop if the weak learner's prediction is pure (It's perfect)
     - Boosting is robust to overfitting. But [why](https://www.quora.com/Why-is-the-boosting-algorithm-robust-to-overfitting)? My understanding: Because each *weak* learner has to make *global* decision on the entire data, can't be localized around outliers. (Weak yet global) Not like decision trees, which each node is more localized as it goes deeper. Yoav (CS255) said it's related to the margin, but I didn't fully understand.
